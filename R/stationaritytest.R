@@ -16,25 +16,25 @@ stationarity.tests <- function(x, l){
   lb.s <- lb$statistic
   lb.p <- lb$p.value
   lb.null <- "No autocorrelation in series"
-  lb.interp <- ifelse(lb$statistic < 0.05, "Series may have autocorelation", "Series may not have autocorrelation")
+  lb.interp <- ifelse(lb.p < 0.05, "Series may have autocorelation", "Series may not have autocorrelation")
 
   bp <- Box.test(x, lag = l, type = "Box-Pierce")
   bp.s <- bp$statistic
   bp.p <- bp$p.value
   bp.null <- "No autocorrelation in series"
-  bp.interp <- ifelse(lb$statistic < 0.05, "Series may have autocorelation", "Series may not have autocorrelation")
+  bp.interp <- ifelse(bp.p < 0.05, "Series may have autocorelation", "Series may not have autocorrelation")
 
   adf <- adf.test(x, k = l)
   adf.s <- adf$statistic
   adf.p <- adf$p.value
   adf.null <- "Series has a unit root process"
-  adf.interp <- ifelse(lb$statistic < 0.05, "Series may not have unit root", "Series may have unit root")
+  adf.interp <- ifelse(adf.p < 0.05, "Series may not have unit root", "Series may have unit root")
 
   kpss <- kpss.test(x, null="Trend")
   kpss.s <- kpss$statistic
   kpss.p <- kpss$p.value
   kpss.null <- "Series is trend-stationary"
-  kpss.interp <- ifelse(lb$statistic < 0.05, "Series may not be trend-stationary", "Series may be trend-stationary")
+  kpss.interp <- ifelse(kpss.p < 0.05, "Series may not be trend-stationary", "Series may be trend-stationary")
 
   stationary.table <- tibble(
     "Test" = c("Box-Ljung", "Box-Pierce", "ADF", "KPSS"),
