@@ -1,0 +1,14 @@
+Package: stationaritytestr
+Type: Package
+Title: Quick estimation and interpretation of stationarity tests for time series data
+Version: 0.1.0
+Author: Timothy A. Model
+Maintainer: Timothy A. Model <tmodel@indiana.edu>
+Description: This packages runs Ljung-Box, Box-Pierce, ADF, and KPSS tests on a time series to test for stationarity. 
+    It presents test statistics, p-values, information about the null hypothesis, and a quick interpretation of the results given the p-values.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/timothymodel/stationaritytestr
+Imports: tseries
+RoxygenNote: 6.1.1
